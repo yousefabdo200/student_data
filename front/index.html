@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign In</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" href= "images/logo.jpg"/>
+        <link rel="stylesheet" href= "css/all.min.css"/>
+        <link rel="stylesheet" href= "css/fontawesome.min.css"/>
+        <link rel="stylesheet" href= "css/bootstrap.min.css"/>
+        <link rel="stylesheet" href= "css/style.css"/>
+    </head>
+    <body>
+        <script>
+            //i use this java script function to check if cookie exisst with chatgpt help
+            // Function to check if a cookie exists
+function checkCookie(cookieName) {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+      if (cookie.indexOf(cookieName + '=') === 0) {
+        return true; // Cookie exists
+      }
+    }
+    return false; // Cookie does not exist
+  }
+  
+  // Check if the cookie exists
+  if (checkCookie('username')) {
+    // Redirect to another page
+    window.location.href = '../front/dashboard.html';
+  }
+        </script>
+        <div class="index">
+        </div>
+        <form action="../backend/login.php" method="POST">
+            <div class="control container row">
+            
+                <div class="col-sm-10 col-md-6 text-center">
+                    <img src="images/logo.jpg" alt="Francais">
+                </div>
+                <div class="login col-sm-10 col-md-4">
+                    <h3 class="text-center">Sign In</h4>
+                    <div class="input">
+                        <i class="fa fa-user"></i><input class="form-control form-control-lg" type="text" name="user" placeholder="Username" autocomplete="off" required="required"/>
+                    </div>
+                    <div class="input">
+                        <i class="fa fa-lock"></i><input class="form-control form-control-lg pass-input" type="password" name="pass" placeholder="Password" autocomplete="new-password"/><i class="fa fa-eye visual-password"></i>
+                    </div>
+                    <div class="">
+                        <a ><input class="btn btn-primary btn-lg input-group" type="submit" value="Login"/></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="footer">
+        
+        </div>
+        <script src="js/jquery-1.12.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
