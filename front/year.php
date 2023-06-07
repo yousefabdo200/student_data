@@ -20,9 +20,9 @@
                 <div class="collapse navbar-collapse" id="app-nav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="dashboard.html">Student Count</a></li>
-                    <li class="nav-item"><a class="nav-link" href="year.html">First Year</a></li>
-                    <li class="nav-item"><a class="nav-link" href="year.html">Second Year</a></li>
-                    <li class="nav-item"><a class="nav-link" href="year.html">Third Year</a></li>
+                    <li class="nav-item"><a class="nav-link" href="year.php?grade=one">First Year</a></li>
+                    <li class="nav-item"><a class="nav-link" href="year.php?grade=two">Second Year</a></li>
+                    <li class="nav-item"><a class="nav-link" href="year.php?grade=three">Third Year</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -161,7 +161,7 @@
 
                 </table>
             </div>
-            <a href="newstudent.html" class="btn btn-primary">New Student</a>
+            <a href="newstudent.php?grade=<?=$_GET['grade']?>" class="btn btn-primary">New Student</a>
         </div>
         <div class="footer">
             

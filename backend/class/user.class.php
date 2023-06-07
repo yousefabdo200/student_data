@@ -9,4 +9,16 @@ class user extends DBcon
         $result=$stm->fetch();
         return $result;
     }
+
+    protected function addstudent($name,$snumber,$pnumber,$year,$days,$time)
+    {
+        $query="INSERT INTO student (s_name,s_number,p_number,attend,year,time) value(?,?,?,?,?,?)";
+        $stm=$this->connect()->prepare($query);
+        if($stm->execute([$name,$snumber,$pnumber,$days,$year,$time]))
+        {
+            return true;
+        }
+        return false;
+    } 
+    
 }
