@@ -19,7 +19,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="app-nav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Student Count</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Student Count</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=one">First Year</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=two">Second Year</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=three">Third Year</a></li>

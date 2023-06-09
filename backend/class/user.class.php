@@ -20,5 +20,13 @@ class user extends DBcon
         }
         return false;
     } 
+    protected function student_data()
+    {
+        $query="SELECT * FROM student";
+        $stm=$this->connect()->prepare($query);
+        $stm->execute();
+        return $stm;
+    }
+
     
 }

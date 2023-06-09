@@ -19,7 +19,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="app-nav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Student Count</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Student Count</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=one">First Year</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=two">Second Year</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=three">Third Year</a></li>
@@ -36,7 +36,7 @@
         </nav>
         <h1 class="text-center">Add Student</h1>
         <div class="container">
-            <form class="form-horizontal" action="../backend/newstudent.php?grade=<?=$_GET['grade']?>" method="POST">
+            <form class="form-horizontal" action="../backend/addstudent.php?grade=<?=$_GET['grade']?>" method="POST">
 
                 <!-- Name Field -->
                 <div class="form-group">

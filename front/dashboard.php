@@ -19,7 +19,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="app-nav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Student Count</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Student Count</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=one">First Year</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=two">Second Year</a></li>
                     <li class="nav-item"><a class="nav-link" href="year.php?grade=three">Third Year</a></li>
@@ -34,25 +34,32 @@
                 </div>
             </div>
         </nav>
+        <?php
+        $response = file_get_contents("http://localhost/php%20projects/oop/Student%20Data/backend/api/count.API.php");
+        if ($response !== false) {
+            $row=json_decode($response,true);
+          
+        }
+        ?>
         <h1 class='text-center'>Student Count</h1>
         <div class="container home-stats text-center">
             <div class="row">
                 <div class="col col-md-4 col-sm-10">
                     <div class="stat st-firstyear">
                         First Year
-                        <span><a href="year.php?grade=one">4444</a></span>
+                        <span><a href="year.php?grade=one"><?=$row['first']?></a></span>
                     </div>
                 </div>
                 <div class="col col-md-4 col-sm-10">
                     <div class="stat st-secondyear">
                         Secnod Year
-                        <span><a href="year.php?grade=two">5555</a></span>
+                        <span><a href="year.php?grade=two"><?=$row['second']?></a></span>
                     </div>
                 </div>
                 <div class="col col-md-4 col-sm-10">
                     <div class="stat st-thirdyear">
                         Third Year
-                        <span><a href="year.php?grade=three">6666</a></span>
+                        <span><a href="year.php?grade=three"><?=$row['third']?></a></span>
                     </div>
                 </div>
             </div>
