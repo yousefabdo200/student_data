@@ -45,5 +45,19 @@ class user extends DBcon
         $stm->execute([$snumber]);
         return $stm;
     }
-    
+     
+    protected function update($num,$name,$snumber,$pnumber,$days)
+    {
+        $query="UPDATE student SET s_name=?,s_number=?,p_number=?,attend=? WHERE s_number=?";
+        $stm=$this->connect()->prepare($query);
+        if($stm->execute([$name,$snumber,$pnumber,$days,$num]))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }

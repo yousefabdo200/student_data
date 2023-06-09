@@ -33,7 +33,6 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="open"><a class="dropdown-item" href="">Edit Profile</a></li>
                             <li class="open"><a class="dropdown-item" href="../backend/logout.php">Logout</a></li>
                         </ul>
                     </li>
@@ -43,8 +42,8 @@
         </nav>
         <h1 class="text-center">Edit Student</h1>
         <div class="container">
-            <form class="form-horizontal" action="?do=Update" method="POST">
-                <input type="hidden" name="id" value="<?php echo $id ?>"/>
+            <form class="form-horizontal" action="../backend/update.php?num=<?=$_GET['num']?>" method="POST">
+                <input type="hidden" name="grade" value="<?= $row['year']?>"/>
 
                 <!-- Name Field -->
                 <div class="form-group">
