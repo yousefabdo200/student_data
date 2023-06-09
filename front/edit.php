@@ -11,6 +11,13 @@
         <link rel="stylesheet" href= "css/style.css"/>
     </head>
     <body>
+        <?php
+        $num=$_GET["num"];
+            $url = "http://localhost/php%20projects/oop/Student%20Data/backend/api/accountinfo.API.php?num=$num";
+            $response = file_get_contents($url);
+            $row=json_decode($response,true);
+            $row['attend']=explode(',', $row['attend']);
+        ?>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <span class="navbar-brand">Logo</span>
@@ -26,7 +33,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="open"><a class="dropdown-item" href="edit.html">Edit Profile</a></li>
+                            <li class="open"><a class="dropdown-item" href="">Edit Profile</a></li>
                             <li class="open"><a class="dropdown-item" href="../backend/logout.php">Logout</a></li>
                         </ul>
                     </li>
@@ -43,7 +50,7 @@
                 <div class="form-group">
                     <label>Name</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="name" class="form-control form-control-lg" placeholder="Student Name" disable value="Mohamed" />
+                        <input type="text" name="name" class="form-control form-control-lg" placeholder="Student Name" disable value=<?=$row['s_name']?> />
                     </div>
                 </div>
 
@@ -51,7 +58,7 @@
                 <div class="form-group">
                     <label>Student Number</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="studentnumber" class="form-control form-control-lg" placeholder="Student Number" required="required" value="01234567890"/>
+                        <input type="text" name="studentnumber" class="form-control form-control-lg" placeholder="Student Number" required="required" value=<?=$row['s_number']?> />
                     </div>
                 </div>  
 
@@ -59,7 +66,7 @@
                 <div class="form-group">
                     <label>Parrent Number</label>
                     <div class="col-sm-10 col-md-6 password">
-                        <input type="text" name="parrentnumber" class="form-control form-control-lg"placeholder="Parrent Number" required="required" value="01234567890"/>
+                        <input type="text" name="parrentnumber" class="form-control form-control-lg"placeholder="Parrent Number" required="required" value=<?=$row['p_number']?> />
                     </div>
                 </div>  
 
@@ -67,7 +74,7 @@
                 <div class="form-group">
                     <label>1st Day</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="firstdegree" class="form-control form-control-lg" placeholder="1st Exam" value="حاضر"/>
+                        <input type="text" name="firstdegree" class="form-control form-control-lg" placeholder="1st Exam" value=<?=$row['attend'][0]?>  />
                     </div>
                 </div>  
 
@@ -75,42 +82,42 @@
                 <div class="form-group">
                     <label>2nd Day</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="seconddegree" class="form-control form-control-lg" placeholder="2nd Exam"  value="حاضر"/>
+                        <input type="text" name="seconddegree" class="form-control form-control-lg" placeholder="2nd Exam"  value=<?=$row['attend'][1]?> />
                     </div>
                 </div>  
                 <!-- 3rd Degree Field -->
                 <div class="form-group">
                     <label>3rd Day</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="thirddegree" class="form-control form-control-lg" placeholder="3rd Exam"  value="غائب"/>
+                        <input type="text" name="thirddegree" class="form-control form-control-lg" placeholder="3rd Exam"  value=<?=$row['attend'][2]?> />
                     </div>
                 </div>  
                 <!-- 4th Degree Field -->
                 <div class="form-group">
                     <label>4th Day</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="fourthdegree" class="form-control form-control-lg" placeholder="4th Exam" value="حاضر"/>
+                        <input type="text" name="fourthdegree" class="form-control form-control-lg" placeholder="4th Exam" value=<?=$row['attend'][3]?> />
                     </div>
                 </div>  
                 <!-- 5th Degree Field -->
                 <div class="form-group">
                     <label>5th Day</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="fifthdegree" class="form-control form-control-lg" placeholder="5th Exam" value="غائب"/>
+                        <input type="text" name="fifthdegree" class="form-control form-control-lg" placeholder="5th Exam" value=<?=$row['attend'][4]?> />
                     </div>
                 </div>  
                 <!-- 6th Degree Field -->
                 <div class="form-group">
                     <label>6th Day</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="sithdegree" class="form-control form-control-lg" placeholder="6th Exam" value="حاضر"/>
+                        <input type="text" name="sithdegree" class="form-control form-control-lg" placeholder="6th Exam" value=<?=$row['attend'][5]?> />
                     </div>
                 </div>  
                 <!-- 7th Degree Field -->
                 <div class="form-group">
                     <label>7th Day</label>
                     <div class="col-sm-10 col-md-6">
-                        <input type="text" name="seventhdegree" class="form-control form-control-lg" placeholder="7th Exam" value="غائب"/>
+                        <input type="text" name="seventhdegree" class="form-control form-control-lg" placeholder="7th Exam" value=<?=$row['attend'][6]?> />
                     </div>
                 </div>
 

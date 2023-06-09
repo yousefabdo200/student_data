@@ -26,7 +26,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="open"><a class="dropdown-item" href="edit.html">Edit Profile</a></li>
+                            <li class="open"><a class="dropdown-item" href="">Edit Profile</a></li>
                             <li class="open"><a class="dropdown-item" href="../backend/logout.php">Logout</a></li>
                         </ul>
                     </li>
@@ -37,6 +37,13 @@
         <h1 class='text-center'>Student Info</h1>
         <div class="container">
             <div class="table-responsive">
+            <?php
+        $apiUrl = "http://localhost/php%20projects/oop/Student%20Data/backend/api/student.API.php";
+        $response = file_get_contents($apiUrl);
+        if ($response !== false) {
+            $row=json_decode($response,true);
+        }
+        ?>
                 <table class="table table-bordered text-center main-table">
                     <thead>
                         <tr>
@@ -55,108 +62,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Mohamed</td>
-                            <td>01234567890</td>
-                            <td>01234567890</td>
-                            <td>1/1/2030</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
+                        <?php
+                        foreach($row[$_GET['grade']] as $r)
+                        { 
+                            $r['attend']=explode(',',$r['attend']);
+                            ?>
+                            <tr>
+                            <td><?=$r['s_name']?></td>
+                            <td><?=$r['s_number']?></td>
+                            <td><?=$r['p_number']?></td>
+                            <td><?=$r['time']?></td>
+                            <td><?=$r['attend'][0]?></td>
+                            <td><?=$r['attend'][1]?></td>
+                            <td><?=$r['attend'][2]?></td>
+                            <td><?=$r['attend'][3]?></td>
+                            <td><?=$r['attend'][4]?></td>
+                            <td><?=$r['attend'][5]?></td>
+                            <td><?=$r['attend'][6]?></td>
                             <td>
-                                <a href='#' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
-                                <a href='#' class='btn btn-danger confirm'><i class='fa fa-times'></i> Delete</a>
+                                <a href='edit.php?num=<?=$r['s_number']?>' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
+                                <a href='../backend/delete.php?num=<?=$r['s_number']?>' class='btn btn-danger confirm'><i class='fa fa-times'></i> Delete</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Mohamed</td>
-                            <td>01234567890</td>
-                            <td>01234567890</td>
-                            <td>1/1/2030</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>
-                                <a href='#' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
-                                <a href='#' class='btn btn-danger confirm'><i class='fa fa-times'></i> Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Mohamed</td>
-                            <td>01234567890</td>
-                            <td>01234567890</td>
-                            <td>1/1/2030</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>
-                                <a href='#' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
-                                <a href='#' class='btn btn-danger confirm'><i class='fa fa-times'></i> Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Mohamed</td>
-                            <td>01234567890</td>
-                            <td>01234567890</td>
-                            <td>1/1/2030</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>
-                                <a href='#' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
-                                <a href='#' class='btn btn-danger confirm'><i class='fa fa-times'></i> Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Mohamed</td>
-                            <td>01234567890</td>
-                            <td>01234567890</td>
-                            <td>1/1/2030</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>
-                                <a href='#' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
-                                <a href='#' class='btn btn-danger confirm'><i class='fa fa-times'></i> Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Mohamed</td>
-                            <td>01234567890</td>
-                            <td>01234567890</td>
-                            <td>1/1/2030</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>غائب</td>
-                            <td>حاضر</td>
-                            <td>غائب</td>
-                            <td>
-                                <a href='#' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
-                                <a href='#' class='btn btn-danger confirm'><i class='fa fa-times'></i> Delete</a>
-                            </td>
-                        </tr>
+                       <?php }
+?>
                     </tbody>
 
                 </table>

@@ -27,6 +27,23 @@ class user extends DBcon
         $stm->execute();
         return $stm;
     }
+    protected function delete_user($snumber)
+    {
+        $query="DELETE FROM student WHERE s_number = ?";
+        $stm=$this->connect()->prepare($query);
+        if($stm->execute([$snumber]))
+        {
+            return true;
+        }
+        return false;
+    }
 
+    protected function singl_data($snumber)
+    {
+        $query="SELECT * FROM student WHERE s_number = ?";
+        $stm=$this->connect()->prepare($query);
+        $stm->execute([$snumber]);
+        return $stm;
+    }
     
 }

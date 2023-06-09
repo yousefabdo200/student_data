@@ -7,18 +7,18 @@ class view extends user
        
         if(!$result)
         {
-            header("Location:http://localhost/php%20projects/oop/Student%20Data/front/?error=not found");
+            header("LOCATION:../front/index.html?error=not found");
         }
         else
         {
             if($result['password']!==$password)
             {
-                header("Location:http://localhost/php%20projects/oop/Student%20Data/front/?error=no user name or incorrect passwordfound");
+                header("LOCATION:../front/index.html?error=no user name or incorrect passwordfound");
                
             }
             session_start();
             setcookie("username","$user_name",time()+3600*60,'/');
-            header("Location:http://localhost/php%20projects/oop/Student%20Data/front/dashboard.php");
+            header("LOCATION:../front/dashboard.php");
         }
     }
     public function coun()
@@ -49,5 +49,9 @@ class view extends user
     {
         $result=$this->student_data();
         return $result;
+    }
+    public function  singl($snumber)
+    {
+        return $this->singl_data($snumber)->fetch();
     }
 }

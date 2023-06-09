@@ -26,7 +26,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="open"><a class="dropdown-item" href="edit.html">Edit Profile</a></li>
+                            <li class="open"><a class="dropdown-item" href="">Edit Profile</a></li>
                             <li class="open"><a class="dropdown-item" href="../backend/logout.php">Logout</a></li>
                         </ul>
                     </li>
